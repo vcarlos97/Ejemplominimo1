@@ -3,14 +3,21 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import { SubjectsComponent } from './subjects/subjects.component';
+import { SubjectCardComponent } from './subject-card/subject-card.component';
+import { StudentCardComponent } from './student-card/student-card.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SubjectsComponent,
+    SubjectCardComponent,
+    StudentCardComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
