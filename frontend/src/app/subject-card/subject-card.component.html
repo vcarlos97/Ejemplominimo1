@@ -1,1 +1,11 @@
-<p>subject-card works!</p>
+<div class="subject-card" *ngIf="subject">
+
+    <div class="subject-title">
+        <h2>{{subjectIndex+1 + ' - ' + subject.name}}</h2>
+    </div>
+
+    <div class="students">
+        <app-student-card *ngFor="let student of subject.students; index as i"
+        [student]="student" [index]="i"></app-student-card>
+    </div>
+</div>

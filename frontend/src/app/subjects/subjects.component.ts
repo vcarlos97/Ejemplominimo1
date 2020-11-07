@@ -1,4 +1,8 @@
+import { SubjectService } from './../services/subject.service';
 import { Component, OnInit } from '@angular/core';
+import { Subject } from '../model/subject';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-subjects',
@@ -7,9 +11,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SubjectsComponent implements OnInit {
 
-  constructor() { }
+  subjects: Subject[];
+
+  constructor(public subjectService: SubjectService, private router: Router) { }
 
   ngOnInit(): void {
+    this.subjectService.getSubjects().subscribe (subjects =>{
+      this.subjects = subjects;
+    })
   }
 
 }

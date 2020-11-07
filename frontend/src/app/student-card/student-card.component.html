@@ -1,1 +1,17 @@
-<p>student-card works!</p>
+<div class="student-card" *ngIf="student">
+
+    <div class="student-name">
+        Student {{index+1}}: {{student.name}}
+    </div>
+
+    <div class="student-address">
+        Dirección: {{student.address}}
+    </div>
+
+    Telefonos:
+    <div class="student-phones" *ngFor="let phone of student.phones">
+         {{phone|json}} 
+    </div>
+    
+</div>
+<br>
