@@ -33,4 +33,4 @@ function newStudent (req: Request, res: Response): void {
     })
 }
 
-export default {getStudent, getStudents};
+export default {getStudent, getStudents, newStudent};

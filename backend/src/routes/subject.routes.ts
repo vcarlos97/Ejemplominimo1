@@ -9,6 +9,9 @@ import subjectController from "../controllers/subject.controller";
 
 const router = Router();
 router.get('/todo', subjectController.getSubjects);
+router.get('/:id', subjectController.getSubject);
+router.post('/newSubject', subjectController.addSubject);
+router.post('/newStudent', subjectController.addStudent);
 
 export = router;
 
