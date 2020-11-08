@@ -25,7 +25,7 @@ export class SubjectCardComponent implements OnInit {
   }
 
   addStudent(){
-    this.router.navigateByUrl('/newSubject');
+    this.router.navigateByUrl('/newStudent');
   }
 
 }

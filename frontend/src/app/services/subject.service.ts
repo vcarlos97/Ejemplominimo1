@@ -2,6 +2,7 @@ import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Subject } from '../model/subject';
+import { Student } from '../model/student';
 
 @Injectable({
   providedIn: 'root'
@@ -12,5 +13,13 @@ export class SubjectService {
 
   getSubjects(){
     return this.http.get<Subject[]>(environment.apiURL + '/subject/todo');
+  }
+
+  newSubject(newSubject: Subject) {
+    return this.http.post(environment.apiURL + '/subject/newSubject', newSubject);
+  }
+
+  addStudent(newStudent: Student) {
+    return this.http.post(environment.apiURL + '/subject/newStudent', newStudent);
   }
 }
