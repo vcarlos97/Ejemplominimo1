@@ -14,8 +14,6 @@ export class StudentCardComponent implements OnInit {
   @Input()
   index: number;
 
-
-
   constructor() { }
 
   ngOnInit(): void {

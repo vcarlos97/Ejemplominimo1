@@ -1,14 +1,15 @@
+<div class="center">
+  <button (click)="addSubject()" class="button style=" >Nueva Asignatura</button>
+  <button (click)="listStudents()" class="button">Lista Estudiantes</button>
+</div>
+
+
 <div class="subjects">
     <!-- SELECTOR DE COURSE-CARD.COMPONENT.TS -->
     <app-subject-card *ngFor="let subject of subjects; index as i"
       [subject]="subject" [subjectIndex]="i">
     </app-subject-card>  
-
+    
 </div>
 
-<br>
-
-<div class="center">
-  <button (click)="addSubject()" class="button" >Nueva Asignatura</button>
-</div>
 

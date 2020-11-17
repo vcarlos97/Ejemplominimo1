@@ -1,4 +1,5 @@
 import mongoose, { Schema, Document} from 'mongoose';
+import Phone, {IPhone} from "./phone";
 
 //Modelo de objeto que se guarda en la BBDD de MongoDB
 const studentSchema = new Schema({
@@ -9,8 +10,10 @@ const studentSchema = new Schema({
         type: String
     },
     phones: [{
-        key: String,
-        value: String
+        type: Object,
+        ref: Phone
+        
+    
     }]
 });
 
@@ -18,7 +21,7 @@ const studentSchema = new Schema({
 export interface IStudent extends Document {
     name: string;
     address: string;
-    phones: Array<object>;
+    phones: Array<IPhone>;
 }
 
 //Exportamos modelo para poder usarlo

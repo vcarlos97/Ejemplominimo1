@@ -36,18 +36,30 @@ const addSubject = async (req: Request, res: Response) => {
 }
 
 const addStudent = async (req: Request, res: Response) => {
-    let studentID = req.body.studentID;
-    let subjectName = req.body.subjectName;
-    let student = await Student.find({"_id": studentID});
-    if(!student) return res.status(404).send({message: 'Student not found'});
-    else {
-        let subject = await Subject.find({"name": subjectName});
-        if(!subject) 
-            return res.status(404).send({message: 'Subject not found'});
-        else 
-            await Subject.updateOne({"name":req.body.subjectName}, {$addToSet: {students: studentID}});
-    }
-    return res.status(201).send({message: 'Student added successfully'});
+    let subjectName = req.params.subjectName;
+    
+    let studentName = req.body.name; 
+    let studentAddress = req.body.address;
+    let studentPhones = req.body.phones;
+    
+    let s = await Student.findOne({name: studentName});  
+    if(!s) { 
+        let student = new Student({ "name": studentName, "address": studentAddress, "phones": studentPhones });
+        console.log("Student new: ", student);
+        await student.save().then((data) => { 
+            s = data;  
+        });
+    } 
+    await Subject.updateOne({"name": subjectName}, {$addToSet: {students: s?._id}}).then(data => { 
+        if (data.nModified == 1) { 
+            console.log("Student added successfully"); 
+            res.status(201).send({message: 'Student added successfully'}); 
+        } else { 
+            res.status(409).json('Student already exists!!!') 
+    } }).catch((err) => { 
+        console.log("error ", err); 
+        res.status(500).json(err); 
+    }); 
 }
 
 export default {getSubjects, getSubject, addSubject, addStudent};

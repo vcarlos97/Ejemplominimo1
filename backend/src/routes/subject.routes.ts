@@ -11,7 +11,7 @@ const router = Router();
 router.get('/todo', subjectController.getSubjects);
 router.get('/:id', subjectController.getSubject);
 router.post('/newSubject', subjectController.addSubject);
-router.post('/newStudent', subjectController.addStudent);
+router.post('/newStudent/:subjectName', subjectController.addStudent);
 
 export = router;
 

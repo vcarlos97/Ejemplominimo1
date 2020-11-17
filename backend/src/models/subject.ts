@@ -4,7 +4,9 @@ import Student, { IStudent } from './student';
 //Modelo de objeto que se guarda en la BBDD de MongoDB
 const subjectSchema = new Schema({
     name: {
-        type: String
+        type: String,
+        unique: true,
+        index: true
     },
     students: [{
         type: Schema.Types.ObjectId,

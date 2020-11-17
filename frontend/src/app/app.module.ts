@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { StudentFormComponent } from './student-form/student-form.component';
 import { SubjectFormComponent } from './subject-form/subject-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { StudentsComponent } from './students/students.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +18,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SubjectCardComponent,
     StudentCardComponent,
     StudentFormComponent,
-    SubjectFormComponent
+    SubjectFormComponent,
+    StudentsComponent
   ],
   imports: [
     BrowserModule,

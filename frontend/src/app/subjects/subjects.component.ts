@@ -2,7 +2,7 @@ import { SubjectService } from './../services/subject.service';
 import { Component, OnInit } from '@angular/core';
 import { Subject } from '../model/subject';
 import { Router } from '@angular/router';
-//import { Student } from '../model/student';
+
 
 
 @Component({
@@ -26,4 +26,7 @@ export class SubjectsComponent implements OnInit {
     this.router.navigateByUrl('/newSubject');
   }
 
+  listStudents(){
+    this.router.navigateByUrl('/students');
+  }
 }
